@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link href="css/lib/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
+    <title>Track Your Time</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h1 class="text-center">Track Your time just on one click</h1>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-8 m-auto">
+                <form action="" class="tracker-form">
+                    <div class="form-group">
+                        <label for="trackerMemo">Please enter the Memo:</label>
+                        <input type="text" name="trackerMemo" id="trackerMemo" class="form-control">
+                    </div>
+                </form>
+                <p class="text-center" id="timer"></p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-primary" id="startButton">Start Timer</button>
+                <button class="btn btn-primary d-none" id="stopButton">Stop Timer</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <p class="text-center" id="total-time-spent"></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/handle-timer.js"></script>
+    <script src="js/lib/bootstrap.js"></script>
+  </body>
+</html>
