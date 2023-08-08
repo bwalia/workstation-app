@@ -35,9 +35,9 @@ const createWindow = () => {
     mainWindow.show();
     const store = new ElectronStore();
     const token = store.get("accessToken");
-    // if (token)
-    //     mainWindow.loadFile('src/projects.html')
-    // else
+    if (token)
+        mainWindow.loadFile('src/projects.html')
+    else
         mainWindow.loadFile('src/login.html')
     // Open the DevTools.
     mainWindow.webContents.openDevTools()

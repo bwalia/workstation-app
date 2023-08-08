@@ -12,7 +12,6 @@ loginBtn.onclick = (() => {
                     store.set('accessToken', data.access_token)
                     store.set('businessID', data.user.uuid_business_id)
                     store.set('loggedUser', JSON.stringify(data.user))
-                    console.log({ data: store.get('accessToken') });
                     return window.location.href = "projects.html";
                 }
                 alert(data?.error || data?.email)
