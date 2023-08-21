@@ -21,6 +21,7 @@
     "electron": "^25.2.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "electron-db": "^0.15.7",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.1.0"

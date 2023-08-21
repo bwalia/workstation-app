@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:8080;">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/timer.css">
     <link href="css/lib/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
     <title>Track Your Time</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col-sm-6">
+                <button onclick="history.back()" class="btn btn-info">Go Back</button>
+            </div>
+            <div class="col-sm-6 text-end">
+                <button type="button" class="btn btn-danger" id="logout">Logout</button>
+            </div>
+        </div>
         <div class="row mt-3">
             <div class="col-md-12">
                 <h1 class="text-center">Track Your time just on one click</h1>
@@ -17,12 +30,38 @@
         <div class="row mt-3">
             <div class="col-md-8 m-auto">
                 <form action="" class="tracker-form">
-                    <div class="form-group">
-                        <label for="trackerMemo">Please enter the Memo:</label>
-                        <input type="text" name="trackerMemo" id="trackerMemo" class="form-control">
+                    <div class="row">
+                        <div class="col-md-8 m-auto">
+                            <div class="form-floating">
+                                <select class="form-select" id="taskListing"
+                                    aria-label="Please select the Task"></select>
+                                <label for="taskListing">Select Task</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
-                <p class="text-center" id="timer"></p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-8 m-auto">
+                <div class="timer-group">
+                    <div class="timer hour">
+                        <div class="hand"><span></span></div>
+                        <div class="hand"><span></span></div>
+                    </div>
+                    <div class="timer minute">
+                        <div class="hand"><span></span></div>
+                        <div class="hand"><span></span></div>
+                    </div>
+                    <div class="timer second">
+                        <div class="hand"><span></span></div>
+                        <div class="hand"><span></span></div>
+                    </div>
+                    <div class="face">
+                        <h2>A CSS Chronograph</h2>
+                        <p id="lazy">00:00:00</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
@@ -37,7 +76,9 @@
             </div>
         </div>
     </div>
+    <script src="js/fetch.js"></script>
     <script src="js/handle-timer.js"></script>
     <script src="js/lib/bootstrap.js"></script>
-  </body>
+</body>
+
 </html>

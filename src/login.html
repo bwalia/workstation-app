@@ -5,59 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/lib/bootstrap.css">
-    <style>
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-
-        .h-custom {
-            height: calc(100% - 73px);
-        }
-
-        @media (max-width: 450px) {
-            .h-custom {
-                height: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="assets/img/login-bg.jpg" class="img-fluid" alt="Sample image">
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form id="loginForm">
-                        <!-- Email input -->
-                        <div class="form-outline mb-3">
-                            <input type="email" id="loginEmail" class="form-control form-control-lg"
-                                placeholder="Enter a valid email address" />
-                        </div>
-
-                        <!-- Password input -->
-                        <div class="form-outline mb-3">
-                            <input type="password" id="loginPassword" class="form-control form-control-lg"
-                                placeholder="Enter password" />
-                        </div>
-
-                        <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="button" class="btn btn-primary btn-lg" id="loginSubmit"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                        </div>
-
-                    </form>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="border border--secondary">
+            <div class="border__content">
+                <div class="clock">
+                    <div class="hour-hand" id="hour-pin"></div>
+                    <div class="minute-hand" id="minute-pin"></div>
+                    <div class="second-hand" id="second-pin"></div>
+                  </div>
+                <div class="login-screen">
+                    <div class="login--screen__content">
+                        <form class="login">
+                            <div class="login__field">
+                                <i class="login__icon fas fa-user"></i>
+                                <input type="text" class="login__input" id="loginEmail" placeholder="Username / Email">
+                            </div>
+                            <div class="login__field">
+                                <i class="login__icon fas fa-lock"></i>
+                                <input type="password" id="loginPassword" class="login__input" placeholder="Enter your Password">
+                            </div>
+                            <button class="button login__submit" type="button" id="loginSubmit">
+                                <span class="button__text">Login</span>
+                                <i class="button__icon fas fa-chevron-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="login--screen__background">
+                        <span class="login--screen__background__shape login--screen__background__shape4"></span>
+                        <span class="login--screen__background__shape login--screen__background__shape3"></span>
+                        <span class="login--screen__background__shape login--screen__background__shape2"></span>
+                        <span class="login--screen__background__shape login--screen__background__shape1"></span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <script src="js/fetch.js"></script>
     <script src="js/login.js"></script>
 </body>

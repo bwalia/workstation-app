@@ -19,13 +19,18 @@ const createWindow = () => {
         }
     })
     const location = path.join(__dirname, '')
-    if (!db.valid('progress')) {
+    if (!db.valid('progress', location)) {
         db.createTable('progress', location, (succ, msg) => {
             // succ - boolean, tells if the call is successful
             console.log("Success: " + succ);
             console.log("Message: " + msg);
         });
         db.createTable('projects', location, (succ, msg) => {
+            // succ - boolean, tells if the call is successful
+            console.log("Success: " + succ);
+            console.log("Message: " + msg);
+        });
+        db.createTable('tasks', location, (succ, msg) => {
             // succ - boolean, tells if the call is successful
             console.log("Success: " + succ);
             console.log("Message: " + msg);

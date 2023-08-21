@@ -3,6 +3,11 @@ const db = require('electron-db');
 const path = require('path')
 const businessID = store.get('businessID');
 
+document.getElementById('logout').addEventListener('click', () => {
+    console.log("clicked");
+    dataFetch.logout();
+})
+
 const saveProjectsToDisk = async () => {
     const location = path.join(__dirname, '../');
     try {
@@ -67,7 +72,15 @@ const showProjects = () => {
     db.getRows('projects', location, where, (succ, result) => {
         console.log({succ, result});
         if (succ && result.length) {
-            result[0]?.data.forEach(item => {
+            result[0]?.data.forEach((item, idx) => {
+                if (idx === 0) {
+                    const defaultOption = document.createElement('option');
+                    console.log("here");
+                    defaultOption.value = '';
+                    defaultOption.textContent = "-- Select Task --";
+                    defaultOption.classList.add("tasks-option")
+                    selectElement.appendChild(defaultOption);
+                }
                 const option = document.createElement('option');
                 option.value = item.id;
                 option.textContent = item.name;
@@ -78,8 +91,10 @@ const showProjects = () => {
     })
 }
 const handleOptionClick = (evt) => {
-    store.set('projectId', evt.target.value)
-    return window.location.href = "index.html";
+    if (evt.target.value) {
+        store.set('projectId', evt.target.value)
+        return window.location.href = "index.html";
+    }
 }
 const listingElement = document.getElementById('projectListing');
 listingElement.addEventListener('change', handleOptionClick);
